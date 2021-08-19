@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header" >
+      <div class="col-md-8 d-inline-block">
+        <h1>Opportunities</h1>
+      </div>
+      <div class="col-md-4 import-button">
+        <%= link_to "New", new_opportunity_path %>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Salesforce Opportunity ID</th>
+            <th>Stage name</th>
+            <th>Close date</th>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Record type</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @opportunities.each do |opportunity| %>
+            <tr>
+              <td><%= opportunity.resultant_id %></td>
+              <td><%= opportunity.stage_name %></td>
+              <td><%= opportunity.close_date.strftime('%F') %></td>
+              <td><%= opportunity.name %></td>
+              <td><%= opportunity.amount %></td>
+              <td><%= opportunity.record_type %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

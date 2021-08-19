@@ -1,0 +1,44 @@
+h1 Listing intervals
+= paginate @intervals
+
+table
+  thead
+    tr
+      th Service uid
+      th Utility
+      th Utility service
+      th Utility meter number
+      th Utility tariff name
+      th Interval start
+      th Interval end
+      th Interval kWh
+      th Interval kW
+      th Source
+      th Updated
+      th Interval timezone
+      th
+      th
+      th
+
+  tbody
+    - @intervals.each do |interval|
+      tr
+        td = interval.service_uid
+        td = interval.utility
+        td = interval.utility_service_id
+        td = interval.utility_meter_number
+        td = interval.utility_tariff_name
+        td = interval.interval_start
+        td = interval.interval_end
+        td = interval.interval_kwh
+        td = interval.interval_kw
+        td = interval.source
+        td = interval.updated
+        td = interval.interval_timezone
+        td = link_to 'Show', interval
+        td = link_to 'Edit', edit_interval_path(interval)
+        td = link_to 'Destroy', interval, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Interval', new_interval_path
